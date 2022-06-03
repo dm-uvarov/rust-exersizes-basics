@@ -4,13 +4,10 @@ const READY_AMMOUNT: i32 = 2;
 
 fn main() {
 
-    let mut missiles = STARTING_MISIILES; 
-    let ready = READY_AMMOUNT;
-
+    let (missiles, ready)  = (STARTING_MISIILES, READY_AMMOUNT);
 
     println!("Fired {} of my {} missiles.", ready,missiles);
 
-    missiles = missiles - ready;
-
-    println!("{} missiles left", missiles);
+    println!("{} missiles left", missiles - ready);
+  
 }
