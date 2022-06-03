@@ -1,3 +1,5 @@
 fn main() {
-    println!("Hello, world!");
+    let missiles = 8; 
+    let ready = 2;
+    
 }
