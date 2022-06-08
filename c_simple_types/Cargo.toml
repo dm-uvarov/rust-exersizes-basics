@@ -1,0 +1,7 @@
+[package]
+name = "ding_machine"
+version = "2.3.4"
+authors = ["Nathan Stocks <nathan.stocks@gmail.com>"]
+edition = "2018"
+
+[dependencies]
