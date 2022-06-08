@@ -25,7 +25,7 @@ fn main() {
     //
     // If you get stuck, remember that this is *very* similar to what `area_of` does.
     //
-    //println!("Volume is {}", volume(width, height, depth));
+    println!("Volume is {}", volume(width, height, depth));
 }
 
 fn area_of(x: i32, y: i32) -> i32 {
@@ -38,3 +38,8 @@ fn area_of(x: i32, y: i32) -> i32 {
     //            "tail expression" that returns a value without using `return`.
     //            Hint: `cargo clippy` will warn you about this exact thing.
 }
+
+// volume takes 3 arguments of f32 then multiply it and return result.
+fn volume(width: i32, height: i32, depth: i32) -> i32{
+    width * height * depth
+}// end of fn volume
