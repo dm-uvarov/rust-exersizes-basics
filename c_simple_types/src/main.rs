@@ -16,8 +16,8 @@ fn main() {
     // Create an array of type [f32; 2] and initialize it to contain the
     // information from coords.  Uncomment the print_array line and run the code.
     //
-    //let coords_arr...               // create an array literal out of parts of `coord` here
-    //print_array(coords_arr);        // and pass it in here (this line doesn't need to change)
+    let coords_arr: [ f32; 2 ] = [coords.0,coords.1];            // create an array literal out of parts of `coord` here
+    print_array(coords_arr);        // and pass it in here (this line doesn't need to change)
 
 
     let series = [1, 1, 2, 3, 5, 8, 13];
