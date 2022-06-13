@@ -53,7 +53,7 @@ fn double() {
     // with `cargo run double`  Hint: The answer is 9 times.
     while x < 500 {
         count += 1;
-        x *= 2;
+        x *= 2; 
     }
 
 
@@ -64,8 +64,13 @@ fn count(arg: String) {
     // Challenge: Use an unconditional loop (`loop`) to print `arg` 8 times, and then break.
     // You will need to count your loops, somehow.  Run it with `cargo run bananas`
     //
-    // print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
-
+    let mut i = 0;
+    loop{ 
+        
+        print!("{} ", arg); // Execute this line 8 times, and then break. `print!` doesn't add a newline.
+        i += 1;
+        if i == 8 {break} else {continue};
+    };
 
     println!(); // This will output just a newline at the end for cleanliness.
 }
