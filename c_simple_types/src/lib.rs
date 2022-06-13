@@ -19,13 +19,13 @@ pub fn on_off(val: bool) {
   }
 }
 
-pub fn print_distance(z: (f32, f32)) {
+pub fn print_distance( (x, y): (f32, f32)) {
   // Using z.0 and z.1 is not nearly as nice as using x and y.  Lucky for
   // us, Rust supports destructuring function arguments.  Try replacing "z" in
   // the parameter list above with "(x, y)" and then adjust the function
   // body to use x and y.
   println!(
       "Distance to the origin is {}",
-      ( z.0.powf(2.0) + z.1.powf(2.0) ).sqrt());
+      ( x.powf(2.0) + y.powf(2.0) ).sqrt());
 }
 
