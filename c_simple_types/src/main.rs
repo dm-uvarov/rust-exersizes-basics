@@ -24,8 +24,8 @@ fn main() {
     // 3. Make the `ding` function happy by passing it the value 13 out of the `series` array.
     // Use array indexing.  Done correctly, `cargo run` will produce the additional output
     // "Ding, you found 13!"
-    //
-    //ding(...);
+    
+    ding(series[6]);
 
 
     let mess = ([3, 2], 3.14, [(false, -3), (true, -100)], 5, "candy");
