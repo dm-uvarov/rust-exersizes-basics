@@ -23,6 +23,13 @@ fn main() {
 
         // 1b. Now try passing "sum", "double" and "bananas" to the program by adding your argument
         // after "cargo run".  For example "cargo run sum"
+        if arg == "sum" { 
+            sum() 
+        } else if arg =="double" {
+            double()
+        } else {
+            count(arg)
+        };
     }
 }
 

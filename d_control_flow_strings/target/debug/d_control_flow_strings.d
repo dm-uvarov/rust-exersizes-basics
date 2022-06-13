@@ -1,0 +1,1 @@
+/Users/thnx_home/Development/code/rust/udemy-exersizes/d_control_flow_strings/target/debug/d_control_flow_strings: /Users/thnx_home/Development/code/rust/udemy-exersizes/d_control_flow_strings/src/main.rs
