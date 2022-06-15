@@ -28,11 +28,11 @@ fn main() {
     // Hint 1: use `.starts_with("b")` and `.contains("a")`
     // Hint 2: `&&` is the boolean "AND" operator
     //
-    //if eat(arg) {
-    //    println!("Might be bananas");
-    //} else {
-    //    println!("Not bananas");
-    //}
+    if eat(arg) {
+       println!("Might be bananas");
+    } else {
+       println!("Not bananas");
+    }
 
     // Try running this program with "boat", "banana", and "grapes" as the arguments :-)
 
@@ -48,7 +48,6 @@ fn main() {
 fn inspect(a: &String){
 
     let mut res = String::new(); // true -> plural
-
     if a.ends_with("s"){
         res.push_str("plural");
     }else {
@@ -59,10 +58,23 @@ fn inspect(a: &String){
 } // end of inspect()
 
 // fn change()
-
 fn change(s: &mut String){
     if !s.ends_with("s"){
-    
-    s.push_str("s");
+        s.push_str("s");
     };
+}// end of change()
+
+
+// fn eat()
+fn eat(s: String) -> bool {
+    // if s.starts_with("b") && s.contains("a") {
+    //     true
+    // }else{ 
+    //     false
+    // } 
+
+    // shortcut version
+    s.starts_with("b") && s.contains("a")
 }
+
+// end of fn eat()
