@@ -39,7 +39,7 @@ fn main() {
     // Challenge: Write a function "add" that takes *references* to two integer arguments,
     // dereferences them and adds them together, and returns the result.
     //
-    // println!("1 + 2 = {}, even via references", add(&1, &2));
+    println!("1 + 2 = {}, even via references", add(&1, &2));
 }
 
 
@@ -78,3 +78,10 @@ fn eat(s: String) -> bool {
 }
 
 // end of fn eat()
+
+//fn add()
+fn add(x: &i32, y: &i32) -> i32 {
+    *x + *y
+
+}
+// end of ad()
