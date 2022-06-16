@@ -23,7 +23,11 @@ struct Grapes{
 // If you need a hint, look at how it was done for Carrot at the bottom of this file.
 //
 // impl Bite for...
-
+impl Bite for Grapes{
+    fn bite(self: &mut Self) {
+        self.amoount_left -= 1;
+    }
+}
 
 fn main() {
     // Once you finish #1 above, this part should work.
