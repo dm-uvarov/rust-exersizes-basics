@@ -15,7 +15,7 @@
 //
 #[derive(Debug)] // include this line right before your struct definition
 struct Grapes{
-    amoount_left: i32,
+    amount_left: i32,
 }
 
 
@@ -25,7 +25,7 @@ struct Grapes{
 // impl Bite for...
 impl Bite for Grapes{
     fn bite(self: &mut Self) {
-        self.amoount_left -= 1;
+        self.amount_left -= 1;
     }
 }
 
@@ -38,9 +38,9 @@ fn main() {
     // 4. Uncomment and adjust the code below to match how you defined your
     // Grapes struct.
     //
-    //let mut grapes = Grapes { amount_left: 100 };
-    //grapes.bite();
-    //println!("Eat a grape: {:?}", grapes);
+    let mut grapes = Grapes { amount_left: 100 };
+    grapes.bite();
+    println!("Eat a grape: {:?}", grapes);
 
     // Challenge: Uncomment the code below. Create a generic `bunny_nibbles`
     // function that:
@@ -49,10 +49,15 @@ fn main() {
     // Hint: Define the generic type between the function name and open paren:
     //       fn function_name<T: Bite>(...)
     //
-    //bunny_nibbles(&mut carrot);
-    //println!("Bunny nibbles for awhile: {:?}", carrot);
-}
+    bunny_nibbles(&mut carrot);
+    println!("Bunny nibbles for awhile: {:?}", carrot);
 
+}
+fn bunny_nibbles <T: Bite>(item: &mut T){
+    item.bite();
+    item.bite();
+    item.bite();
+}
 #[derive(Debug)] // This enables using the debugging format string "{:?}"
 struct Carrot {
     percent_left: f32,
