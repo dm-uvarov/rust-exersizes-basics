@@ -92,5 +92,5 @@ impl Run for Robot {}  // not overrride default method
 
 fn main() {
   let robot = Robot{};
-   robot.run();
+  robot.run();
 }
