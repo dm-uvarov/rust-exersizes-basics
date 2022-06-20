@@ -67,6 +67,11 @@ fn main() {
     // send it to another thread.
     let tx2 = tx.clone();
 
+    // for challenge
+    let rx2 = rx.clone();
+    let rx3 = rx.clone();
+    
+
     let handle_a = thread::spawn(move || {
         pause_ms(500);
         tx2.send("Thread A: 1").unwrap();
@@ -83,6 +88,9 @@ fn main() {
         tx.send("Thread B: 2").unwrap();
     });
 
+
+
+
     // Using a Receiver channel as an iterator is a convenient way to get values until the channel
     // gets closed.  A Receiver channel is automatically closed once all Sender channels have been
     // closed.  Both our threads automatically close their Sender channels when they exit and the
@@ -91,10 +99,38 @@ fn main() {
         println!("Main thread: Received {}", msg);
     }
 
+
     // Join the child threads for good hygiene.
     handle_a.join().unwrap();
     handle_b.join().unwrap();
     
+
+        // for challenge 
+    let (tx3, rx3) = channel::unbounded();
+    let rx4 = rx3.clone();
+
+    let handle_aa = thread::spawn(move || {
+        for msg in rx3 {
+            println!("tread aa: recieved from main thread: {}",msg);
+        }
+    });
+
+    let handle_bb = thread::spawn(move || {
+        for msg in rx4 {
+            println!("tread bb: recieved from main thread: {}", msg);
+        }
+    });
+  
+    use std::fmt;
+    // challenge
+    for i in 0..300 {
+        tx3.send(i).unwrap();
+        pause_ms(15);
+    } 
+    drop(tx3);
+    // for challenge join child treads 
+    handle_aa.join().unwrap();
+    handle_bb.join().unwrap();
 
     // Challenge: Make two child threads and give them each a receiving end to a channel.  From the
     // main thread loop through several values and print each out and then send it to the channel.
@@ -104,6 +140,6 @@ fn main() {
 
 
 
-    
+
     println!("Main thread: Exiting.")
 }
