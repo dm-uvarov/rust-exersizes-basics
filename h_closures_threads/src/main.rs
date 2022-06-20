@@ -41,6 +41,7 @@ fn main() {
     // While the child thread is running, the main thread will also do some work
     for letter in vec!["a", "b", "c", "d", "e", "f"] {
         println!("Main thread: Letter {}", letter);
+        println!("handle ended{}", handle.is_finished() );
         pause_ms(200);
     }
 
@@ -49,8 +50,8 @@ fn main() {
     // to exit with a `Result<i32, Err>`.  Get the i32 out of the result and store it in a `sum`
     // variable.  Uncomment the println.  If you did 1a and 1b correctly, the sum should be 20.
     //
-    //let sum =
-    //println!("The child thread's expensive sum is {}", sum);
+    let sum = handle.join().unwrap();
+    println!("The child thread's expensive sum is {}", sum);
 
     // Time for some fun with threads and channels!  Though there is a primitive type of channel
     // in the std::sync::mpsc module, I recommend always using channels from the crossbeam crate,
