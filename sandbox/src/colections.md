@@ -15,8 +15,8 @@ h.insert(5,true);
 h.insert(6,false);
 let have_five = h.remove(&5).unwrap();
 
-// other collections 
-// VecDeque(2 ended qoueue)     HashSet     BtreeMap     LinkedList()   BinaryHeap  BTreSet  
+other collections 
+VecDeque(2 ended qoueue)     HashSet     BtreeMap     LinkedList()   BinaryHeap  BTreSet  
 
 enum Color {
   Red,
@@ -62,10 +62,10 @@ match my_var {
   },
 }
 
-// if there return value {}; should be if not {}
+if there return value {}; should be if not {}
 
 
-// Option
+Option
 
 let mut x: Option<i32> = None;
 x = Some(5);
@@ -77,7 +77,7 @@ for i in x {
   println!("{}", i); 
 }
 
-// handle errors Result is
+handle errors Result is
 #[must_use]
 enum Result<T, E> {
   Ok(T),
