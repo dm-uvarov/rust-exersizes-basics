@@ -18,6 +18,8 @@ fn expensive_sum(v: Vec<i32>) -> i32 {
     v.iter()
         // .filter() goes here
         // .map() goes here
+        .filter( |x| *x % 2 == 0 )
+        .map ( |&x| x * x )
         .sum()
 }
 
