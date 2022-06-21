@@ -1,12 +1,15 @@
 use std::{
     error::Error,
     io,
+    time::Duration,
+    
 };
 use rusty_audio::Audio;
 use crossterm::{
     cursor::{Hide,Show},
-    terminal::{self,EnterAlternateScreen, LeaveAlternateScreen},
+    terminal::{self, EnterAlternateScreen, LeaveAlternateScreen},
     ExecutableCommand,
+    event::{self, Event, KeyCode}
 };
 
 
@@ -27,7 +30,21 @@ fn main() -> Result <(), Box<dyn Error>> {
     stdout.execute(EnterAlternateScreen)?; //new screen similar to wim
     stdout.execute(Hide)?; // no cursor
 
-    println!("alternate screen");
+    // game loop
+    'gameloop: loop{
+        //input 
+        while event::poll(Duration::default())? {
+            if let Event::Key(key_event) = event::read()? {
+               match key_event.code {
+                KeyCode::Esc | KeyCode::Char('q') => {
+                    audio.play("lose");
+                    break 'gameloop;
+                },
+                _ => {} //ignore other keys
+               }
+            }
+        }
+    }
 
     // cleanup 
     audio.wait();
