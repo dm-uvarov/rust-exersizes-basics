@@ -11,12 +11,12 @@ impl Player {
     }
   }
   pub fn move_left(&mut self) {
-    if self.x > 0 {
+    if self.x > 0  {
       self.x -= 1;
     }
   }
   pub fn move_right(&mut self) {
-    if self.x < NUM_COLS{
+    if self.x < NUM_COLS-1{
       self.x += 1;
     }
   }
@@ -25,7 +25,7 @@ impl Player {
 
 impl Drawable for Player {
   fn draw(&self, frame: &mut Frame) {
-    frame[self.x][self.y] = "🗼";
+    frame[self.x][self.y] = "⍙";
       
   }
   

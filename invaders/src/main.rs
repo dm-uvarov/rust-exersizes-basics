@@ -4,7 +4,7 @@ use std::{
     time::Duration, sync::mpsc, thread,
     
 };
-use invaders::{frame::{self, new_frame}, render};
+use invaders::{frame::{self, new_frame, Drawable}, render, player::Player};
 use rusty_audio::Audio;
 use crossterm::{
     cursor::{Hide,Show},
@@ -50,14 +50,18 @@ fn main() -> Result <(), Box<dyn Error>> {
 
 
     // game loop
+    let mut player = Player::new();
+
     'gameloop: loop{
         // pure frame init 
-        let curr_frame = new_frame();
+        let mut curr_frame = new_frame();
 
         //input 
         while event::poll(Duration::default())? {
             if let Event::Key(key_event) = event::read()? {
                match key_event.code {
+                KeyCode::Left => player.move_left(),
+                KeyCode::Right => player.move_right(),
                 KeyCode::Esc | KeyCode::Char('q') => {
                     audio.play("lose");
                     break 'gameloop;
@@ -68,6 +72,7 @@ fn main() -> Result <(), Box<dyn Error>> {
         }
 
         // draw and render
+        player.draw(&mut curr_frame);
         let _ = render_tx.send(curr_frame);
         // mismatch speed of loops
         thread::sleep(Duration::from_millis(1));
